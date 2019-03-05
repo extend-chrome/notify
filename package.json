@@ -6,6 +6,7 @@
   "module": "build/bundle-esm.js",
   "author": "Jack and Amy Steam <jacksteamdev@gmail.com>",
   "license": "MIT",
+  "repository": "bumble-org/notify",
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
     "@types/chrome": "0.0.81",
