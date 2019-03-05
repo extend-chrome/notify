@@ -24,7 +24,7 @@ const iconUrl =
  *
  *
  */
-export const create = ({ message, buttons = [], ...rest }) => {
+const create = ({ message, buttons = [], ...rest }) => {
   const msg = {
     type: 'basic',
     title: name,
