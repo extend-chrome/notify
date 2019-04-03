@@ -15,6 +15,11 @@ export default [
         sourcemap: 'inline',
       },
     ],
-    external: ['chrome-promise', '@bumble/stream'],
+    external: [
+      'chrome-promise',
+      '@bumble/chrome-rxjs',
+      '@bumble/rxjs-log',
+      'rxjs/operators',
+    ],
   },
 ]

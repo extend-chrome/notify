@@ -1,5 +1,7 @@
-import { listenTo, error, log } from '@bumble/stream'
 import chromep from 'chrome-promise'
+import log from '@bumble/rxjs-log'
+import { notifications } from '@bumble/chrome-rxjs'
+import { first } from 'rxjs/operators'
 
 const { name, icons = {} } = chrome.runtime.getManifest()
 
@@ -45,19 +47,16 @@ const create = ({ message, buttons = [], ...rest }) => {
 }
 
 const handleBtnClick = buttons => id => {
-  try {
-    if (buttons.length) {
-      listenTo(chrome.notifications.onButtonClicked)
-        .forEach(log('onButtonClicked'))
-        .filter(noteId => noteId === id)
-        .forEach((noteId, [, buttonIndex]) =>
-          buttons[buttonIndex].onClick(),
-        )
-        .clear(() => true) //remove callback
-        .catch(error('handleBtnClick'))
-    }
-  } catch (error) {
-    console.error('handleBtnClick', error)
+  if (buttons.length) {
+    notifications
+      .buttonClicks()
+      .pipe(
+        log('onButtonClicked'),
+        first(([noteId]) => noteId === id),
+      )
+      .subscribe(([noteId, buttonIndex]) => {
+        buttons[buttonIndex].onClick()
+      })
   }
 }
 
