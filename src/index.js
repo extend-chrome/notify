@@ -52,9 +52,9 @@ const handleBtnClick = buttons => id => {
       .buttonClicks()
       .pipe(
         log('onButtonClicked'),
-        first(([noteId]) => noteId === id),
+        first(({ noteId }) => noteId === id),
       )
-      .subscribe(([noteId, buttonIndex]) => {
+      .subscribe(({ buttonIndex }) => {
         buttons[buttonIndex].onClick()
       })
   }

@@ -35,7 +35,7 @@
     "build"
   ],
   "dependencies": {
-    "@bumble/chrome-rxjs": "^0.3.1",
+    "@bumble/chrome-rxjs": "^0.4.0",
     "@bumble/rxjs-log": "^0.1.0",
     "chrome-promise": "^3.0.4",
     "rxjs": "^6.4.0"
