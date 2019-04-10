@@ -72,7 +72,7 @@ const handleClick = onClick => id => {
     .clicks()
     .pipe(
       log('onClicked'),
-      first(({ noteId }) => noteId === id),
+      first(noteId => noteId === id),
     )
     .subscribe(() => {
       onClick()
