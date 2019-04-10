@@ -26,7 +26,12 @@ const iconUrl =
  *
  *
  */
-const create = ({ message, buttons = [], ...rest }) => {
+const create = ({
+  message,
+  onClick = () => {},
+  buttons = [],
+  ...rest
+}) => {
   const msg = {
     type: 'basic',
     title: name,
@@ -41,6 +46,7 @@ const create = ({ message, buttons = [], ...rest }) => {
   return chromep.notifications
     .create(msg)
     .then(handleBtnClick(buttons))
+    .then(handleClick(onClick))
     .catch(err => {
       console.error('create', err)
     })
@@ -58,6 +64,20 @@ const handleBtnClick = buttons => id => {
         buttons[buttonIndex].onClick()
       })
   }
+  return id
+}
+
+const handleClick = onClick => id => {
+  notifications
+    .clicks()
+    .pipe(
+      log('onClicked'),
+      first(({ noteId }) => noteId === id),
+    )
+    .subscribe(() => {
+      onClick()
+    })
+  return id
 }
 
 /**
