@@ -16,18 +16,15 @@ const iconUrl =
 /**
  * @example
  * notify.create({
- *   message: 'Hey, gimme some money!'
+ *   message: 'Click here for awesomeness.'
+ *   onClick: yesPlease
  *   buttons: [
- *     { title: 'Oh man, you stink!', onClick: giveMoney },
- *     { title: 'Ha ha ha!', onClick: punchInFace }
+ *     { title: 'OK', onClick: yesPlease },
+ *     { title: 'No way', onClick: dontWantIt }
  *   ]
  * })
- *
- *
- *
  */
 const create = ({
-  message,
   onClick = () => {},
   buttons = [],
   ...rest
@@ -35,7 +32,6 @@ const create = ({
   const msg = {
     type: 'basic',
     title: name,
-    message,
     iconUrl,
     buttons: buttons.map(({ title, iconUrl }) => ({
       title,
@@ -60,8 +56,9 @@ const handleBtnClick = buttons => id => {
         log('onButtonClicked'),
         first(({ noteId }) => noteId === id),
       )
-      .subscribe(({ buttonIndex }) => {
+      .subscribe(({ noteId, buttonIndex }) => {
         buttons[buttonIndex].onClick()
+        chrome.notifications.clear(noteId)
       })
   }
   return id
@@ -74,9 +71,11 @@ const handleClick = onClick => id => {
       log('onClicked'),
       first(noteId => noteId === id),
     )
-    .subscribe(() => {
+    .subscribe(id => {
       onClick()
+      chrome.notifications.clear(id)
     })
+
   return id
 }
 
