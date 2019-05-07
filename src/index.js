@@ -25,8 +25,9 @@ const iconUrl =
  * })
  */
 const create = ({
-  onClick = () => {},
+  onClick = () => { },
   buttons = [],
+  id,
   ...rest
 }) => {
   const msg = {
@@ -39,11 +40,15 @@ const create = ({
     })),
     ...rest,
   }
-  return chromep.notifications
-    .create(msg)
+
+  const created = id
+    ? chromep.notifications.create(id, msg)
+    : chromep.notifications.create(msg)
+
+  return created
     .then(handleBtnClick(buttons))
     .then(handleClick(onClick))
-    .catch(err => {
+    .catch((err) => {
       console.error('create', err)
     })
 }
@@ -64,20 +69,21 @@ const handleBtnClick = buttons => id => {
   return id
 }
 
-const handleClick = onClick => id => {
+
+const handleClick = (onClick) => (id) => {
   notifications
     .clicks()
     .pipe(
-      log('onClicked'),
-      first(noteId => noteId === id),
-    )
-    .subscribe(id => {
+      first((noteId) => noteId === id)      
+    .subscribe((noteId) => {
+      console.log('handleClick subscribe', noteId, id)
       onClick()
       chrome.notifications.clear(id)
     })
 
   return id
 }
+
 
 /**
  * @example
@@ -88,3 +94,13 @@ const notify = message => create({ message })
 Object.assign(notify, chromep.notifications, { create })
 
 export default notify
+
+
+
+TODO: update @bumble/chrome-rxjs api
+
+TODO: fix @bumble/notify click handlers
+  - Do not destructure notification id
+
+TODO: update @bumble/notify with this code
+
