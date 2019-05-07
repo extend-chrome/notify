@@ -8,7 +8,7 @@ const { name, icons = {} } = chrome.runtime.getManifest()
 const iconUrl =
   icons[
     Object.keys(icons)
-      .map(s => parseInt(s))
+      .map((s) => parseInt(s))
       .reduce((r, x) => (r > x ? r : x), 0)
       .toString()
   ]
@@ -25,7 +25,7 @@ const iconUrl =
  * })
  */
 const create = ({
-  onClick = () => { },
+  onClick = () => {},
   buttons = [],
   id,
   ...rest
@@ -53,10 +53,9 @@ const create = ({
     })
 }
 
-const handleBtnClick = buttons => id => {
+const handleBtnClick = (buttons) => (id) => {
   if (buttons.length) {
-    notifications
-      .buttonClicks()
+    notifications.buttonClick$
       .pipe(
         log('onButtonClicked'),
         first(({ noteId }) => noteId === id),
@@ -69,12 +68,9 @@ const handleBtnClick = buttons => id => {
   return id
 }
 
-
 const handleClick = (onClick) => (id) => {
-  notifications
-    .clicks()
-    .pipe(
-      first((noteId) => noteId === id)      
+  notifications.click$
+    .pipe(first((noteId) => noteId === id))
     .subscribe((noteId) => {
       console.log('handleClick subscribe', noteId, id)
       onClick()
@@ -84,23 +80,19 @@ const handleClick = (onClick) => (id) => {
   return id
 }
 
-
 /**
  * @example
  * notify('You have been notified!')
  */
-const notify = message => create({ message })
+const notify = (message) => create({ message })
 
 Object.assign(notify, chromep.notifications, { create })
 
 export default notify
 
+// TODO: update @bumble/chrome-rxjs api
 
+// TODO: fix @bumble/notify click handlers
+//   - Do not destructure notification id
 
-TODO: update @bumble/chrome-rxjs api
-
-TODO: fix @bumble/notify click handlers
-  - Do not destructure notification id
-
-TODO: update @bumble/notify with this code
-
+// TODO: update @bumble/notify with this code
