@@ -1,5 +1,4 @@
 import chromep from 'chrome-promise'
-import log from '@bumble/rxjs-log'
 import { notifications } from '@bumble/chrome-rxjs'
 import { first } from 'rxjs/operators'
 
@@ -48,23 +47,22 @@ const create = ({
   return created
     .then(handleBtnClick(buttons))
     .then(handleClick(onClick))
-    .catch((err) => {
-      console.error('create', err)
+    .catch((error) => {
+      console.error('Could not create notification.')
+      console.error(error)
     })
 }
 
 const handleBtnClick = (buttons) => (id) => {
   if (buttons.length) {
     notifications.buttonClick$
-      .pipe(
-        log('onButtonClicked'),
-        first(({ noteId }) => noteId === id),
-      )
+      .pipe(first(({ noteId }) => noteId === id))
       .subscribe(({ noteId, buttonIndex }) => {
-        buttons[buttonIndex].onClick()
+        buttons[buttonIndex].onClick(noteId)
         chrome.notifications.clear(noteId)
       })
   }
+
   return id
 }
 
@@ -73,8 +71,8 @@ const handleClick = (onClick) => (id) => {
     .pipe(first((noteId) => noteId === id))
     .subscribe((noteId) => {
       console.log('handleClick subscribe', noteId, id)
-      onClick()
-      chrome.notifications.clear(id)
+      onClick(noteId)
+      chrome.notifications.clear(noteId)
     })
 
   return id
@@ -89,10 +87,3 @@ const notify = (message) => create({ message })
 Object.assign(notify, chromep.notifications, { create })
 
 export default notify
-
-// TODO: update @bumble/chrome-rxjs api
-
-// TODO: fix @bumble/notify click handlers
-//   - Do not destructure notification id
-
-// TODO: update @bumble/notify with this code
