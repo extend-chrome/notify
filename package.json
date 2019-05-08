@@ -1,6 +1,6 @@
 {
   "name": "@bumble/notify",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Create notifications in your Chrome extension with ease.",
   "repository": "bumble-org/notify",
   "license": "MIT",
