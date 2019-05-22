@@ -70,7 +70,6 @@ const handleClick = (onClick) => (id) => {
   notifications.click$
     .pipe(first((noteId) => noteId === id))
     .subscribe((noteId) => {
-      console.log('handleClick subscribe', noteId, id)
       onClick(noteId)
       chrome.notifications.clear(noteId)
     })
