@@ -32,7 +32,7 @@ https://imgur.com/0lQYbgT.png
 
 ---
 
-This is a simple API for [`chrome.notifications`](https://developer.chrome.com/extensions/notifications) to use in Chrome extensions.
+This is a simpler API for [`chrome.notifications`](https://developer.chrome.com/extensions/notifications) to use in Chrome extensions.
 
 
 You can [create a notification](#usage) with as little as a string and `@bumble/notify` will [do the rest](#manifest)! ✨
@@ -46,6 +46,7 @@ notify('This is too easy')
 - [Getting Started](#getting_started)
 - [Usage](#usage)
 - [Features](#features)
+- [API](#api)
 
 ## Getting started <a name = "getting_started"></a>
 
@@ -85,8 +86,7 @@ The `"notifications"` permission must be included in `manifest.json`.
 ```json
 // manifest.json
 {
-  permissions: ["notifications"],
-  ...
+  "permissions": ["notifications"],
 }
 ```
 
