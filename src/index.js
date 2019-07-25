@@ -77,12 +77,6 @@ const handleClick = (onClick) => (id) => {
   return id
 }
 
-/**
- * @example
- * notify('You have been notified!')
- */
-const notify = (message) => create({ message })
+export const notify = (message) => create({ message })
 
 Object.assign(notify, chromep.notifications, { create })
-
-export default notify

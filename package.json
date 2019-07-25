@@ -10,6 +10,7 @@
   ],
   "main": "build/bundle-cjs.js",
   "module": "build/bundle-esm.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
@@ -28,12 +29,12 @@
   "dependencies": {
     "@bumble/chrome-rxjs": "^0.5.0",
     "@bumble/rxjs-log": "^0.1.0",
+    "@types/chrome": "0.0.81",
     "chrome-promise": "^3.0.5",
     "rxjs": "^6.5.2"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
-    "@types/chrome": "0.0.81",
     "eslint": "^5.16.0",
     "jest": "^24.8.0",
     "rollup": "^0.68.0",
