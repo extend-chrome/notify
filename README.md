@@ -1,5 +1,5 @@
 <!--
-Template tags: 
+Template tags:
 bumble-org
 notify
 @bumble
@@ -12,7 +12,6 @@ https://imgur.com/0lQYbgT.png
 </p>
 
 <h3 align="center">@bumble/notify</h3>
-
 
 <div align="center">
 
@@ -34,7 +33,6 @@ https://imgur.com/0lQYbgT.png
 
 This is a simpler API for [`chrome.notifications`](https://developer.chrome.com/extensions/notifications) to use in Chrome extensions.
 
-
 You can [create a notification](#usage) with as little as a string and `@bumble/notify` will [do the rest](#manifest)! ✨
 
 ```javascript
@@ -50,9 +48,9 @@ notify('This is too easy')
 
 ## Getting started <a name = "getting_started"></a>
 
-You will need to use a bundler like [Rollup](https://rollupjs.org/guide/en/) or Webpack to include this library in the build of Chrome extension. 
+You will need to use a bundler like [Rollup](https://rollupjs.org/guide/en/) or Webpack to include this library in the build of Chrome extension.
 
-See [`rollup-plugin-chrome-extension`](https://github.com/@bumble/rollup-plugin-chrome-extension) for an easy way use Rollup to build your Chrome extension!
+See [`rollup-plugin-chrome-extension`](https://github.com/bumble-org/rollup-plugin-chrome-extension) for an easy way use Rollup to build your Chrome extension!
 
 ### Installation
 
@@ -65,16 +63,17 @@ $ npm i @bumble/notify
 ```javascript
 import { notify } from '@bumble/notify'
 
-notify('The most simple notification')
+notify('The most simple notification').then((id) => {
+  console.log('notification id', id)
+})
+
+notify
+  .create({
+    message: 'You have been notified.',
+  })
   .then((id) => {
     console.log('notification id', id)
   })
-
-notify.create({
-  message: 'You have been notified.',
-}).then((id) => {
-  console.log('notification id', id)
-})
 ```
 
 The function `notify.create` takes any of the [official notification options](https://developer.chrome.com/extensions/notifications#type-NotificationOptions) for `chrome.notifications.create`, without trying to type `"notifications"` every time.
@@ -86,7 +85,7 @@ The `"notifications"` permission must be included in `manifest.json`.
 ```json
 // manifest.json
 {
-  "permissions": ["notifications"],
+  "permissions": ["notifications"]
 }
 ```
 
@@ -149,13 +148,13 @@ All the other methods and events from [`chrome.notifications`](https://developer
 Methods return promises but are otherwise the same as the Chrome API.
 
 ```javascript
-notify.update('my-notification', updateOptions).then(
-  (wasUpdated) => {
-    if(wasUpdated) {
+notify
+  .update('my-notification', updateOptions)
+  .then((wasUpdated) => {
+    if (wasUpdated) {
       console.log('my notification was updated')
     }
-  }
-)
+  })
 ```
 
 - [`update(id) => Promise<wasUpdated: boolean>`](https://developer.chrome.com/extensions/notifications#method-update)
