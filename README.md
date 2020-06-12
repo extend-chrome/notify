@@ -7,7 +7,7 @@ https://imgur.com/0lQYbgT.png
 -->
 
 <p align="center">
-  <a href="https: //github.com/extend-chrome/notify" rel="noopener">
+  <a href="https://github.com/extend-chrome/notify" rel="noopener">
   <img width=200px height=200px src="https://i.imgur.com/HCX1Dpk.png" alt="@extend-chrome/notify logo"></a>
 </p>
 
@@ -15,7 +15,7 @@ https://imgur.com/0lQYbgT.png
 
 <div align="center">
 
-[![npm (scoped)](https://img.shields.io/npm/v/@extend-chrome/notify.svg)](https://www.npmjs.com/package/${}/notify)
+[![npm (scoped)](https://img.shields.io/npm/v/@extend-chrome/notify.svg)](https://www.npmjs.com/package/@extend-chrome/notify)
 [![GitHub last commit](https://img.shields.io/github/last-commit/extend-chrome/notify.svg)](https://github.com/extend-chrome/notify)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![TypeScript Declarations Included](https://img.shields.io/badge/types-TypeScript-informational)](#typescript)

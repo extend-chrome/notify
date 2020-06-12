@@ -2,7 +2,7 @@
   "name": "@extend-chrome/notify",
   "version": "1.1.1",
   "description": "Create notifications in your Chrome extension with ease.",
-  "repository": "extend-chrome/notify",
+  "repository": "github:extend-chrome/notify",
   "license": "MIT",
   "author": "Jack and Amy Steam <jacksteamdev@gmail.com>",
   "main": "lib/index-cjs.js",
@@ -39,8 +39,5 @@
     "rollup": "^0.68.0",
     "sinon-chrome": "^2.3.2",
     "sucrase": "^3.10.1"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
