@@ -1,6 +1,6 @@
 {
   "name": "@extend-chrome/notify",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Create notifications in your Chrome extension with ease.",
   "repository": "extend-chrome/notify",
   "license": "MIT",
