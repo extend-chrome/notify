@@ -15,9 +15,7 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "test": "jest",
-    "preversion": "npm run build",
-    "postversion": "git push && npm publish"
+    "test": "jest"
   },
   "jest": {
     "setupFilesAfterEnv": [
