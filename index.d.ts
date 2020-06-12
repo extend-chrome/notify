@@ -1,6 +1,6 @@
 import chromep from 'chrome-promise'
 
-// Type definitions for @bumble/notify
+// Type definitions for @extend-chrome/notify
 // Definitions by: Jack and Amy Steam <https://jackandamy.rocks>
 /// <reference types="chrome" />
 
