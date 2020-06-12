@@ -1,22 +1,22 @@
 <!--
 Template tags:
-bumble-org
+extend-chrome
 notify
-@bumble
+@extend-chrome
 https://imgur.com/0lQYbgT.png
 -->
 
 <p align="center">
-  <a href="https: //github.com/bumble-org/notify" rel="noopener">
-  <img width=200px height=200px src="https://imgur.com/0lQYbgT.png" alt="@bumble/notify logo"></a>
+  <a href="https: //github.com/extend-chrome/notify" rel="noopener">
+  <img width=200px height=200px src="https://i.imgur.com/HCX1Dpk.png" alt="@extend-chrome/notify logo"></a>
 </p>
 
-<h3 align="center">@bumble/notify</h3>
+<h3 align="center">@extend-chrome/notify</h3>
 
 <div align="center">
 
-[![npm (scoped)](https://img.shields.io/npm/v/@bumble/notify.svg)](https://www.npmjs.com/package/${}/notify)
-[![GitHub last commit](https://img.shields.io/github/last-commit/bumble-org/notify.svg)](https://github.com/bumble-org/notify)
+[![npm (scoped)](https://img.shields.io/npm/v/@extend-chrome/notify.svg)](https://www.npmjs.com/package/${}/notify)
+[![GitHub last commit](https://img.shields.io/github/last-commit/extend-chrome/notify.svg)](https://github.com/extend-chrome/notify)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 [![TypeScript Declarations Included](https://img.shields.io/badge/types-TypeScript-informational)](#typescript)
 
@@ -24,8 +24,8 @@ https://imgur.com/0lQYbgT.png
 
 <div align="center">
 
-[![Fiverr: We make Chrome extensions](https://img.shields.io/badge/Fiverr%20-We%20make%20Chrome%20extensions-brightgreen.svg)](https://www.fiverr.com/jacksteam)
-[![ko-fi](https://img.shields.io/badge/ko--fi-Buy%20me%20a%20coffee-ff5d5b)](https://ko-fi.com/K3K1QNTF)
+[![Chrome Extension Tutorials on YouTube](https://img.shields.io/badge/Chrome%20Extension%20Tutorials-YouTube-c4302b.svg)](https://www.youtube.com/channel/UCVj3dGw75v8aHFYD6CL1tFg)
+[![ko-fi](https://img.shields.io/badge/Buy%20us%20a%20tea-ko--fi-29ABE0)](https://ko-fi.com/jacksteam)
 
 </div>
 
@@ -33,7 +33,7 @@ https://imgur.com/0lQYbgT.png
 
 This is a simpler API for [`chrome.notifications`](https://developer.chrome.com/extensions/notifications) to use in Chrome extensions.
 
-You can [create a notification](#usage) with as little as a string and `@bumble/notify` will [do the rest](#manifest)! ✨
+Add the [`notifications` permission](#permissions) and [create a notification](#usage) with as little as a string. `@extend-chrome/notify` will [do the rest](#manifest)! ✨
 
 ```javascript
 notify('This is too easy')
@@ -50,18 +50,18 @@ notify('This is too easy')
 
 You will need to use a bundler like [Rollup](https://rollupjs.org/guide/en/) or Webpack to include this library in the build of Chrome extension.
 
-See [`rollup-plugin-chrome-extension`](https://github.com/bumble-org/rollup-plugin-chrome-extension) for an easy way use Rollup to build your Chrome extension!
+See [`rollup-plugin-chrome-extension`](https://github.com/extend-chrome/rollup-plugin-chrome-extension) for an easy way use Rollup to build your Chrome extension!
 
 ### Installation
 
 ```sh
-$ npm i @bumble/notify
+$ npm i @extend-chrome/notify
 ```
 
 ## Usage <a name = "usage"></a>
 
 ```javascript
-import { notify } from '@bumble/notify'
+import { notify } from '@extend-chrome/notify'
 
 notify('The most simple notification').then((id) => {
   console.log('notification id', id)
@@ -78,7 +78,7 @@ notify
 
 The function `notify.create` takes any of the [official notification options](https://developer.chrome.com/extensions/notifications#type-NotificationOptions) for `chrome.notifications.create`, without trying to type `"notifications"` every time.
 
-### Permissions
+### Permissions <a name = "permissions"></a>
 
 The `"notifications"` permission must be included in `manifest.json`.
 
