@@ -1,15 +1,15 @@
+import { notifications } from '@extend-chrome/events-rxjs'
 import chromep from 'chrome-promise'
-import { notifications } from '@bumble/chrome-rxjs'
 import { first } from 'rxjs/operators'
 
 const { name, icons = {} } = chrome.runtime.getManifest()
 
 const iconUrl =
   icons[
-    Object.keys(icons)
-      .map((s) => parseInt(s))
-      .reduce((r, x) => (r > x ? r : x), 0)
-      .toString()
+  Object.keys(icons)
+    .map((s) => parseInt(s))
+    .reduce((r, x) => (r > x ? r : x), 0)
+    .toString()
   ]
 
 /**
@@ -24,7 +24,7 @@ const iconUrl =
  * })
  */
 const create = ({
-  onClick = () => {},
+  onClick = () => { },
   buttons = [],
   id,
   ...rest

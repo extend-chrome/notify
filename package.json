@@ -27,8 +27,7 @@
     }
   },
   "dependencies": {
-    "@bumble/chrome-rxjs": "^0.5.0",
-    "@bumble/rxjs-log": "^0.1.0",
+    "@extend-chrome/events-rxjs": "^0.12.1",
     "@types/chrome": "0.0.81",
     "chrome-promise": "^3.0.5",
     "rxjs": "^6.5.2"
