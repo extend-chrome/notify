@@ -1,30 +1,16 @@
+/* eslint-env node */
+
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es2020: true,
   },
-  extends: 'eslint:recommended',
-  globals: {
-    chrome: true,
-    chromep: true,
-  },
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 11,
     sourceType: 'module',
   },
-  rules: {
-    'comma-dangle': [
-      'error',
-      {
-        arrays: 'always-multiline',
-        objects: 'always-multiline',
-        imports: 'always-multiline',
-        exports: 'always-multiline',
-        functions: 'always-multiline',
-      },
-    ],
-    'no-console': 'off',
-    quotes: ['error', 'single'],
-    semi: ['error', 'never'],
-  },
+  plugins: ['@typescript-eslint'],
+  rules: {},
 }

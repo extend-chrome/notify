@@ -28,16 +28,23 @@
   },
   "dependencies": {
     "@extend-chrome/events-rxjs": "^0.12.1",
-    "@types/chrome": "0.0.81",
     "chrome-promise": "^3.0.5",
+    "prettier": "^2.1.2",
     "rxjs": "^6.5.2"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^6.1.0",
     "@sucrase/jest-plugin": "^2.0.0",
-    "eslint": "^5.16.0",
+    "@types/chrome": "0.0.81",
+    "@types/firefox-webext-browser": "^78.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
     "jest": "^24.8.0",
-    "rollup": "^0.68.0",
+    "rollup": "^2.33.0",
     "sinon-chrome": "^2.3.2",
-    "sucrase": "^3.10.1"
+    "sucrase": "^3.10.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
   }
 }

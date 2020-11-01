@@ -1,8 +1,10 @@
 /* eslint-env node */
+import typescript from '@rollup/plugin-typescript'
+console.log('🚀: typescript', typescript)
 
 export default [
   {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: [
       {
         file: 'lib/index-esm.js',
@@ -20,5 +22,6 @@ export default [
       '@extend-chrome/events-rxjs',
       'rxjs/operators',
     ],
+    plugins: [typescript()],
   },
 ]

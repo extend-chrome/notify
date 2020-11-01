@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "es2019"],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "strict": true,
+    "target": "es2018"
+  },
+  "exclude": ["dist", ".plop", "node_modules"],
+  "typeAcquisition": { "enable": true }
+}
