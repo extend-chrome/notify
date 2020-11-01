@@ -48,4 +48,4 @@ const create = ({
 
 export const notify = (message: string): Promise<string> => create({ message })
 
-Object.assign(notify, chrome.notifications, chromep.notifications, { create })
+Object.assign(notify, chromep.notifications, { create })
